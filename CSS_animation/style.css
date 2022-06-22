@@ -1,0 +1,161 @@
+
+/* body{
+    background-color: lightblue;
+    text-align: center;
+}
+
+.wrapper{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid red;
+}
+
+.circle{
+    width: 100px;
+    padding:50px 0px;
+    line-height: 0;
+    margin: 60px auto;
+    background-color: pink;
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid blue;
+    transition: background 1s, transform 0.3s;
+}
+
+.circle:hover{
+    background: salmon;
+    transform: rotate(360deg);
+}
+ */
+
+
+
+html,body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0px;
+}
+
+
+.grass, .sky, .road{
+    position: relative;
+}
+
+
+.sky{
+    height: 40%;
+    background-color: rgb(176, 221, 239);
+    /* border: 2px solid red; */
+}
+
+.sky::before{
+    content: "";
+    position: absolute;
+    height: 200px;
+    z-index: -1;
+    background: url('/CSS_animation/images/cloud.png') no-repeat;
+    background-size: cover;
+    width: 100%;
+
+}
+
+
+
+.grass{
+    height: 30%;
+    background-color: rgba(90, 146, 114, 0.949);
+    /* border: 2px solid yellow; */
+}
+
+
+.road{
+    height: 30%;
+    background-color: rgb(108, 108, 108);
+    /* border: 2px solid blue; */
+    box-sizing: border-box;
+    border-top: 10px solid grey;
+    border-bottom: 10px solid grey;
+    width: 100%;
+}
+
+
+.lines{
+    box-sizing: border-box;
+    border: 5px dashed #fff;
+    height: 0px;
+    width: 100%;
+    position: absolute;
+    top: 45%;
+}
+
+
+/* Elements to animate */
+.mario{
+    position: absolute;
+    top: -35px;
+    left: 0px;
+    animation-name: drive;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    /* animation-delay: 2s; */
+}
+
+.luigi{
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    animation-name: drive;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction:reverse;
+}
+
+.cloud{
+    position: absolute;
+}
+
+.cloud:nth-child(1){
+    width: 200px;
+    top: 120px;
+    opacity: 0.5;
+    animation: wind 80s linear infinite reverse ;
+}
+
+.cloud:nth-child(2){
+    width: 300px;
+    top:0px;
+    animation: wind 40s linear infinite reverse;
+}
+
+
+
+
+
+/* Keyframes */
+@keyframes drive{
+    from{
+        transform: translateX(-100px);
+    }
+
+    to{
+        transform: translateX(1500px);
+    }
+}
+
+
+@keyframes wind{
+    from{
+        left: -300px;
+    }
+
+    to{
+        left: 100%;
+    }
+}
